@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIRÈNE | INS 到府沙龍</title>
+  <meta name="description" content="高端到府頭皮管理 × 壓力調節系統｜一對一專屬預約制｜高雄到府" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0c0c0f;
+      --card:#121216;
+      --text:#f5f5f5;
+      --muted:#cfcfcf;
+      --line:#24242b;
+      --btn:#ffffff;
+      --btnText:#000000;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:'Playfair Display', serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    /* ===== HERO ===== */
+.hero{
+  height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:0 10%;
+
+  background-image:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.78)),
+    url("./hero.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+}
+    }
+    /* 如果同層有 hero.jpg，會自動疊上去 */
+    .hero.has-img{
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.78)),
+        url("./hero.jpg") center/cover no-repeat;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:760px;
+      opacity:0;
+      transform:translateY(40px);
+      animation:fadeUp 1.5s ease forwards;
+    }
+    .kicker{
+      font-size:12px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:rgba(245,245,245,.75);
+      margin-bottom:14px;
+    }
+    .hero h1{
+      font-size:64px;
+      letter-spacing:10px;
+      margin:0;
+    }
+    .hero p{
+      margin-top:22px;
+      line-height:1.9;
+      color:rgba(245,245,245,.82);
+      font-size:18px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+    .btn{
+      display:inline-block;
+      padding:14px 30px;
+      border-radius:999px;
+      background:var(--btn);
+      color:var(--btnText);
+      font-weight:700;
+      transition:all .35s ease;
+      border:1px solid transparent;
+    }
+    .btn:hover{
+      background:transparent;
+      color:var(--text);
+      border:1px solid var(--text);
+    }
+    .btn.ghost{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .btn.ghost:hover{
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.35);
+    }
+
+    /* ===== SECTIONS ===== */
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 10%;
+    }
+
+    .section{
+      padding:110px 0;
+      border-top:1px solid var(--line);
+      opacity:0;
+      transform:translateY(46px);
+      transition:all 1s ease;
+    }
+    .section.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    h2{
+      font-size:32px;
+      margin:0 0 26px;
+      letter-spacing:1px;
+    }
+    .text{
+      line-height:2;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:14px;
+      margin-top:26px;
+    }
+    .card{
+      grid-column:span 6;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.5px;
+    }
+    .price{
+      color:rgba(245,245,245,.72);
+      font-size:14px;
+      font-weight:600;
+      margin-left:8px;
+    }
+    .small{
+      margin-top:12px;
+      color:rgba(245,245,245,.65);
+      font-size:13px;
+      line-height:1.9;
+    }
+
+    .list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:rgba(245,245,245,.70);
+      line-height:1.95;
+      font-size:14px;
+    }
+
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      color:rgba(245,245,245,.85);
+      font-size:13px;
+      margin:10px 10px 0 0;
+    }
+
+    .faq{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      margin-top:20px;
+    }
+    .faq details{
+      border-top:1px solid var(--line);
+      padding:12px 0;
+    }
+    .faq details:first-child{ border-top:0; }
+    .faq summary{
+      cursor:pointer;
+      font-weight:700;
+      letter-spacing:.3px;
+    }
+    .faq p{
+      margin:10px 0 0;
+      color:rgba(245,245,245,.72);
+      line-height:1.9;
+      font-size:14px;
+    }
+
+    .footer{
+      padding:70px 0;
+      border-top:1px solid var(--line);
+      color:#777;
+      font-size:13px;
+      text-align:center;
+    }
+
+    @keyframes fadeUp{
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    @media(max-width:860px){
+      .hero{ padding:0 7%; }
+      .wrap{ padding:0 7%; }
+      .hero h1{ font-size:42px; letter-spacing:7px; }
+      .card{ grid-column:span 12; }
+      h2{ font-size:26px; }
+      .section{ padding:80px 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO：如果同層有 hero.jpg，會自動套用 -->
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <div class="kicker">High-end Home Salon · Kaohsiung</div>
+      <h1>SIRÈNE</h1>
+      <p>
+        INS HAIR SALON 到府沙龍<br>
+        高端頭皮管理 × 壓力調節系統<br>
+        專屬預約｜一對一服務<br><br>
+        在自己的空間裡，恢復狀態。
+      </p>
+
+      <div class="cta-row">
+        <a class="btn" href="https://lin.ee/X1txC2Q" target="_blank" rel="noopener">立即 LINE 預約</a>
+        <a class="btn ghost" href="#menu">查看療程與價格</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+
+    <!-- 背書 -->
+    <section class="section">
+      <h2>18 年專業經驗</h2>
+      <div class="text">
+        乙級美髮執照｜18 年美髮資歷｜曾參與品牌沙龍經營與專業教學。<br>
+        SIRÈNE 專注於「頭皮髮質管理」與「壓力調節」的整合式到府療程，
+        讓你在最熟悉的空間裡，維持最佳狀態與節奏。
+      </div>
+
+      <div>
+        <span class="badge">一對一專屬預約</span>
+        <span class="badge">高雄到府服務</span>
+        <span class="badge">高端頭皮 × 壓力調節</span>
+      </div>
+    </section>
+
+    <!-- 核心定位 -->
+    <section class="section">
+      <h2>這不是洗髮，是狀態管理。</h2>
+      <div class="text">
+        SIRÈNE 的核心不是「把頭洗乾淨」，而是把整套狀態做回來。<br>
+        從頭皮淨化、水循環泡泡浴到肩頸釋放、結構修護與精油療癒，<br>
+        讓身體真正降速，讓思緒真正安靜。
+      </div>
+    </section>
+
+    <!-- 菜單 -->
+    <section class="section" id="menu">
+      <h2>服務項目與價格</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>沉浸式髮浴 <span class="price">NTD 1,500</span></h3>
+          <div class="text">日常放鬆＋頭皮清潔打底，適合想快速恢復乾淨與輕盈感。</div>
+        </div>
+
+        <div class="card">
+          <h3>SPA 水循環護理 <span class="price">NTD 2,500</span></h3>
+          <div class="text">深層頭皮淨化與水循環泡泡浴，強化頭皮環境與髮質穩定度。</div>
+        </div>
+
+        <div class="card">
+          <h3>舒眠撥筋 <span class="price">NTD 2,500</span></h3>
+          <div class="text">針對緊繃、壓力型疲勞，從頭皮延伸到肩頸，讓身體真正「降速」。</div>
+        </div>
+
+        <div class="card">
+          <h3>髮質矯正 <span class="price">NTD 4,000 起</span></h3>
+          <div class="text">針對毛躁、自然捲、髮流凌亂與受損髮，進行結構修護與質地校正（依髮長髮量與受損程度報價）。</div>
+        </div>
+
+        <div class="card">
+          <h3>補白髮 <span class="price">NTD 1,000 起</span></h3>
+          <div class="text">自然乾淨、不突兀的補染策略（依範圍與用色報價）。</div>
+        </div>
+
+        <div class="card">
+          <h3>療程皆含</h3>
+          <ul class="list">
+            <li>頭皮淨化、水循環泡泡浴</li>
+            <li>肩頸放鬆按摩、氣結釋放</li>
+            <li>結構修護、面部提拉</li>
+            <li>精油療癒</li>
+            <li>基礎修剪吹整（不做大幅造型變更）</li>
+          </ul>
+          <div class="small">※ 以上為固定營運版本與價目表。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 流程 -->
+    <section class="section" id="flow">
+      <h2>到府流程</h2>
+      <ul class="list">
+        <li><b>Step 1｜LINE 預約</b>：選療程、時間、地址與需求</li>
+        <li><b>Step 2｜到府準備</b>：我攜帶完整器材與耗材到場</li>
+        <li><b>Step 3｜療程進行</b>：依頭皮狀態與緊繃點調整節奏</li>
+        <li><b>Step 4｜吹整完成</b>：乾淨俐落、好整理的狀態帶走</li>
+      </ul>
+    </section>
+
+    <!-- 規則 + 稀缺 -->
+    <section class="section" id="booking">
+      <h2>每日僅接 2–3 位預約</h2>
+      <div class="text">
+        服務地區：高雄到府｜一對一預約制｜需提前預約。<br>
+        為確保品質與節奏，每日名額有限，建議提早預約。
+      </div>
+
+      <div class="faq" style="margin-top:22px;">
+        <details open>
+          <summary>定金規則</summary>
+          <p>
+            1. 定金當天消費折抵，多退少補<br>
+            2. 若需更改時段，請於 3 天前提出；3 天內更改將沒收一半定金／當日更改收取全額作為臨時更改無法替補的補償<br>
+            3. 取消將無法退定金，請確認可如期再預約（定金是為彼此保障，感謝配合）
+          </p>
+        </details>
+      </div>
+
+      <div class="cta-row" style="margin-top:26px;">
+        <a class="btn" href="https://lin.ee/X1txC2Q" target="_blank" rel="noopener">立即預約</a>
+        <a class="btn ghost" href="#faq">先看常見問題</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>常見問題</h2>
+      <div class="faq">
+        <details open>
+          <summary>到府需要我準備什麼？</summary>
+          <p>只要有能用水的環境與插座即可，其餘器材耗材我會備齊。</p>
+        </details>
+        <details>
+          <summary>療程會不會很久？</summary>
+          <p>依項目不同，LINE 預約時我會先告知大約時間。</p>
+        </details>
+        <details>
+          <summary>我想大改造型可以嗎？</summary>
+          <p>療程包含基礎修剪吹整；若要大幅造型／特殊造型可在預約時先說明評估。</p>
+        </details>
+        <details>
+          <summary>髮質矯正／補白髮為什麼是「起」？</summary>
+          <p>依髮長、髮量、受損程度與需求客製報價，避免你付到不必要的費用。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 結尾 CTA -->
+    <section class="section" style="padding-bottom:90px;">
+      <h2>把時間留給你自己，把細節交給我</h2>
+      <div class="text">
+        如果你正在找一個「不用出門、但比出門更完整」的高端頭皮與髮質照護方式，現在就從 LINE 開始預約。
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://lin.ee/X1txC2Q" target="_blank" rel="noopener">立即 LINE 預約</a>
+        <a class="btn ghost" href="#top">回到頂部</a>
+      </div>
+    </section>
+
+    <div class="footer">
+      SIRÈNE INS HAIR SALON<br>
+      Kaohsiung Home Service · By Appointment Only
+    </div>
+  </div>
+
+  <script>
+    // 如果 hero.jpg 存在就加上 has-img（讓背景用圖片）
+    (function(){
+      const hero = document.querySelector('.hero');
+      const img = new Image();
+      img.onload = () => hero.classList.add('has-img');
+      img.onerror = () => {}; // 沒圖也不影響
+      img.src = './hero.jpg';
+    })();
+
+    // 滾動淡入
+    const sections = document.querySelectorAll('.section');
+    const onScroll = () => {
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 120){
+          sec.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+
+</body>
+</html>
